@@ -32,7 +32,7 @@ vim.opt.termguicolors = true
 
 -- Scroll options
 vim.opt.scrolloff = 12
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "no"
 vim.opt.isfname:append("@-@")
 
 -- Fast update time
