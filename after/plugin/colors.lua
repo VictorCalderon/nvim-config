@@ -2,7 +2,7 @@ function ColorMyPencils(color)
   local chosenColor = color or "tokyonight"
   vim.cmd.colorscheme(chosenColor)
 
-  -- Set background transparent
+  -- Set colors
   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
   vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
   vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
@@ -12,6 +12,15 @@ function ColorMyPencils(color)
   vim.api.nvim_set_hl(0, "DiffChange", { bg = "none" })
   vim.api.nvim_set_hl(0, "DiffDelete", { bg = "none" })
   vim.api.nvim_set_hl(0, "DiffText", { bg = "none" })
+
+  -- Require tokyonight
+  require("tokyonight").setup {
+    transparent = true,
+    styles = {
+      sidebars = "transparent",
+      floats = "transparent"
+    }
+  }
 end
 
 ColorMyPencils()

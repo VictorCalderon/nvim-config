@@ -38,5 +38,11 @@ vim.opt.isfname:append("@-@")
 -- Fast update time
 vim.opt.updatetime = 50
 
+-- Set special things for themes
+-- tokyonight
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_transparent = true
+vim.g.tokyonight_colors = { bg_float = "none" }
+
 -- Let's place the leader key here with all the other sets
 vim.g.mapleader = " "
