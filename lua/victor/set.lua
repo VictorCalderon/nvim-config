@@ -4,10 +4,10 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
--- Let's do something about tabs and tab spacing, four is more than okay
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+-- Let's do something about tabs and tab spacing, two is more than okay
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 -- Smart indentation
@@ -31,8 +31,8 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 -- Scroll options
-vim.opt.scrolloff = 12
-vim.opt.signcolumn = "no"
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 -- Fast update time

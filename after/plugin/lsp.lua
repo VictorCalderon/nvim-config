@@ -8,6 +8,7 @@ lsp.ensure_installed({
     'lua_ls'
 })
 
+
 local cmp = require('cmp')
 
 cmp.setup({
@@ -50,8 +51,20 @@ lsp.format_on_save({
     servers = {
         ['lua_ls'] = { 'lua' },
         ['rust_analyzer'] = { 'rust' },
+        ['prettier'] = { 'tsx', 'jsx', 'javascript', 'typescript' },
     }
 })
+
+-- -- Fix Undefined global 'vim'
+-- lsp.configure('lua-language-server', {
+--     settings = {
+--         Lua = {
+--             diagnostics = {
+--                 globals = { 'vim' }
+--             }
+--         }
+--     }
+-- })
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
@@ -66,5 +79,6 @@ lsp.set_preferences({
 lsp.setup()
 
 vim.diagnostic.config({
+    globals = { 'vim' },
     virtual_text = true
 })
