@@ -56,6 +56,10 @@ return require('packer').startup(function(use)
     config = function() require('Comment').setup() end
   }
 
+  -- Nice browser window for files
+  use("nvim-tree/nvim-tree.lua")
+  use("nvim-tree/nvim-web-devicons")
+
   -- A treesitter to make everything blazingly fast here
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use('nvim-treesitter/playground')
