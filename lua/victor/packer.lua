@@ -13,10 +13,6 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  -- A treesitter to make everything blazingly fast here
-  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
-  use('nvim-treesitter/playground')
-
   -- Add a theme to this beatiful tool
   use({ 'rebelot/kanagawa.nvim', as = 'kanagawa' })
   use({ 'folke/tokyonight.nvim', as = 'tokyonight' })
@@ -60,6 +56,14 @@ return require('packer').startup(function(use)
     config = function() require('Comment').setup() end
   }
 
+  -- A treesitter to make everything blazingly fast here
+  use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  use('nvim-treesitter/playground')
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
+  use("windwp/nvim-ts-autotag")
   use('neovim/nvim-lspconfig')
   use('simrat39/rust-tools.nvim')
   use('mhartington/formatter.nvim')
