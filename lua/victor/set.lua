@@ -44,5 +44,8 @@ vim.g.tokyonight_style = "night"
 vim.g.tokyonight_transparent = true
 vim.g.tokyonight_colors = { bg_float = "none" }
 
+-- Set default to utf
+vim.g.encoding = "UTF-8"
+
 -- Let's place the leader key here with all the other sets
 vim.g.mapleader = " "

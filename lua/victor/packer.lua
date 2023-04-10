@@ -36,6 +36,27 @@ return require('packer').startup(function(use)
     end
   }
 
+  use({
+    'glepnir/galaxyline.nvim',
+    branch = 'main',
+    -- your statusline
+    config = function()
+      -- require('my_statusline')
+    end,
+    -- some optional icons
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+  })
+
+
+  -- Components for galaxyline
+  use {
+    "SmiteshP/nvim-gps",
+    requires = "nvim-treesitter/nvim-treesitter"
+  }
+
+  -- Cool icons for the terminal
+  use('ryanoasis/vim-devicons')
+
   -- Add Language Server Support
   use {
     'VonHeikemen/lsp-zero.nvim',

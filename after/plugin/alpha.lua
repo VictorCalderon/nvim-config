@@ -3,29 +3,21 @@ local dashboard = require("alpha.themes.dashboard")
 
 local function footer()
   local total_plugins = #vim.tbl_keys(packer_plugins)
-  local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
-  local version = vim.version()
-  local nvim_version_info = "   v" .. version.major .. "." .. version.minor .. "." .. version.patch
-  return datetime .. "" .. total_plugins .. " plugins" .. nvim_version_info
+  return total_plugins .. " plugins installed"
 end
 
 
 
 local logo = {
-  "  ██░░▓▓▓▓▒▒▒▒▒▒▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒    ▒▒▒▒▒▒    ░░██  ",
-  "  ██░░▒▒▒▒▒▒▒▒▓▓▒▒▓▓▓▓▓▓▒▒  ▒▒      ▒▒▒▒▒▒      ▒▒  ▒▒▒▒▒▒▒▒░░██  ",
-  "  ██░░▒▒▒▒▓▓▓▓▒▒▒▒▒▒▓▓▓▓  ▒▒      ▒▒▒▒        ▒▒▒▒▒▒    ▒▒▒▒░░██  ",
-  "  ██░░▒▒▒▒▒▒▓▓▓▓▒▒▒▒▒▒▒▒░░  ▒▒▒▒░░▒▒▒▒    ░░▒▒▒▒      ░░▒▒▒▒░░██  ",
-  "  ██░░▒▒▒▒▒▒▒▒▓▓▓▓▒▒▓▓▓▓  ▒▒▒▒      ▒▒▒▒▒▒    ▒▒    ▒▒▒▒▒▒▒▒░░██  ",
-  "  ██░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒  ▒▒░░▒▒        ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██  ",
-  "  ██░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒  ▒▒▒▒    ▒▒    ░░▒▒▒▒      ▒▒▒▒▒▒▒▒░░██  ",
-  "  ██░░░░▒▒▒▒▒▒▒▒▓▓▓▓▒▒▒▒▒▒      ░░▒▒▒▒      ▒▒    ▒▒▒▒▒▒▒▒░░░░██  ",
-  "  ██████░░░░▒▒▒▒▒▒▓▓▒▒▒▒    ▒▒▒▒░░        ▒▒▒▒  ▒▒▒▒▒▒░░░░██████  ",
-  "        ████░░░░▒▒▒▒▒▒    ░░          ▒▒░░▒▒▒▒▒▒▒▒░░░░████        ",
-  "            ████░░░░▒▒      ▒▒    ▒▒▒▒▓▓▓▓▓▓▒▒░░░░████            ",
-  "                ██      ▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▓▓▓▓▓▓██                ",
-  "              ██    ████░░░░▒▒▒▒░░▒▒▒▒░░░░████▓▓▓▓██              ",
-  "            ██    ██    ████░░░░░░░░░░████    ██▓▓▓▓██            ",
+  "  ██░░▒▒▒▒▒▒▒▒                                      ▒▒▒▒▒▒▒▒░░██  ",
+  "  ██░░▒▒▒▒▒▒▒▒▒▒         VCBiotech S.R.L.        ▒▒▒▒▒▒▒▒▒▒▒░░██  ",
+  "  ██░░▒▒▒▒▒▒▒▒▒▒▒▒                             ▒▒▒▒▒▒▒▒▒▒▒▒▒░░██  ",
+  "  ██░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒                         ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██  ",
+  "  ██░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒                 ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██  ",
+  "  ██░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒          ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░██  ",
+  "  ██░░░░▒▒▒▒▒▒▒▒            ▒▒▒▒░░▒▒▒▒            ▒▒▒▒▒▒▒▒░░░░██  ",
+  "                    ████░░░░▒▒▒▒░░▒▒▒▒░░░░████                    ",
+  "             ██▓▓▓▓██   ████░░░░░░░░░░████    ██▓▓▓▓██            ",
   "          ████████          ████░░████          ████████          ",
   "                                ██                                "
 }
@@ -33,10 +25,12 @@ local logo = {
 dashboard.section.header.val = logo
 
 dashboard.section.buttons.val = {
-  dashboard.button("<Space>pm", "  File Manager"),
-  dashboard.button("<Space>pf", "  Find File"),
-  dashboard.button("<Space>ps", "  Find Word"),
-  dashboard.button("q", "  Quit", ":qa<cr>")
+  dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+  dashboard.button("r", "  Recently used files", ":Telescope oldfiles<CR>"),
+  dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
+  dashboard.button("t", "  Find text", ":Telescope live_grep <CR>"),
+  dashboard.button("m", "  Mason", ":Mason<CR>"),
+  dashboard.button("q", "  Quit", ":qa<cr>")
 }
 
 dashboard.section.footer.val = footer()
