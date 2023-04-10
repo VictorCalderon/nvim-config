@@ -27,6 +27,15 @@ return require('packer').startup(function(use)
   use('tpope/vim-fugitive')
   use('lewis6991/gitsigns.nvim')
 
+
+  -- Make it more welcoming
+  use {
+    'goolord/alpha-nvim',
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+    end
+  }
+
   -- Add Language Server Support
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -60,22 +69,21 @@ return require('packer').startup(function(use)
   use("nvim-tree/nvim-tree.lua")
   use("nvim-tree/nvim-web-devicons")
 
-  use {
-    'goolord/alpha-nvim',
-    config = function()
-      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
-    end
-  }
-
   -- A treesitter to make everything blazingly fast here
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use('nvim-treesitter/playground')
+
+  -- Auto pairs to make <> and {} somewhat easier
   use {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
   use("windwp/nvim-ts-autotag")
+  -- An easier way to configure my LSP
   use('neovim/nvim-lspconfig')
+
+  -- Beautiful rust tools
   use('simrat39/rust-tools.nvim')
+  -- A formatter to make things easier
   use('mhartington/formatter.nvim')
 end)
