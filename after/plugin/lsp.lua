@@ -8,10 +8,22 @@ lsp.ensure_installed({
   'lua_ls'
 })
 
+-- Fix Undefined global 'vim'
+lsp.configure('lua_ls', {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
+    }
+  }
+})
+
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require('cmp')
 
 cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+
 cmp.setup({
   formatting = {
     -- changing the order of fields so the icon is the first
@@ -52,7 +64,7 @@ lsp.format_on_save({
   servers = {
     ['lua_ls'] = { 'lua' },
     ['rust_analyzer'] = { 'rust' },
-    ['prettier'] = { 'tsx', 'jsx', 'javascript', 'typescript' },
+    ['prettier'] = { 'tsx', 'jsx', 'javascript', 'typescript', 'typescriptreact' },
   }
 })
 
