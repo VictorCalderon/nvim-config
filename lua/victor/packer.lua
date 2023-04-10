@@ -60,6 +60,13 @@ return require('packer').startup(function(use)
   use("nvim-tree/nvim-tree.lua")
   use("nvim-tree/nvim-web-devicons")
 
+  use {
+    'goolord/alpha-nvim',
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+    end
+  }
+
   -- A treesitter to make everything blazingly fast here
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
   use('nvim-treesitter/playground')
