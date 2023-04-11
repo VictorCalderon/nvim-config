@@ -47,6 +47,11 @@ return require('packer').startup(function(use)
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
   })
 
+  -- Floating terminal window
+  use('voldikss/vim-floaterm')
+
+  -- If life get's too hard
+  use('eandrju/cellular-automaton.nvim')
 
   -- Components for galaxyline
   use {
