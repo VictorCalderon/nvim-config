@@ -86,6 +86,10 @@ return require('packer').startup(function(use)
 
   }
 
+  -- Behavior on buffer delete
+  use('famiu/bufdelete.nvim');
+
+  -- Commenting is now easier
   use {
     'numToStr/Comment.nvim',
     config = function() require('Comment').setup() end
