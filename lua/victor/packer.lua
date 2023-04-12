@@ -17,6 +17,20 @@ return require('packer').startup(function(use)
   use({ 'rebelot/kanagawa.nvim', as = 'kanagawa' })
   use({ 'folke/tokyonight.nvim', as = 'tokyonight' })
 
+
+  -- Let's get in troubleee
+  use {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
+
   -- Let's add the Primeagen's harpoon package
   use('theprimeagen/harpoon')
 
